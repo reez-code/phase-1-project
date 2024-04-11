@@ -17,9 +17,16 @@ const requestOptions = {
 fetch(topHeadlines, requestOptions)
   .then((response) => response.json())
   .then((result) => {
-    console.log(result);
-    console.log(result.articles[0]);
+    // console.log(result);
+    // console.log(result.articles[0]);
     updateCardInfo(result.articles[0]);
+    result.articles.forEach((items) => {
+      if (items !== result.articles[0]) {
+        console.log(items);
+        secondSetofCards(items);
+      }
+      //
+    });
   })
   .catch((error) => console.error(error));
 
@@ -28,4 +35,12 @@ function updateCardInfo(article) {
   document.querySelector(".card-title").textContent = article.title;
   document.querySelector(".card-text").textContent = article.description;
   document.getElementById("more-info").href = article.url;
+}
+function secondSetofCards(articles) {
+  // accesses the second content and creates cards
+  const selectDiv = document.querySelector("#list");
+  const secondSet = document.createElement("div");
+  secondSet.className = "col";
+  secondSet.innerHTML = `<div class=col><div class=card><img src=${articles.urlToImage} class=card-img-top alt=.../> <div class=card-body><h5 class=card-title id=second>${articles.title}</h5><p class=card-text>${articles.description}</p></div></div></div>`;
+  selectDiv.append(secondSet);
 }
