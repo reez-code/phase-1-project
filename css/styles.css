@@ -17,3 +17,10 @@
 .img-fluid {
   height: 100%;
 }
+hr.class-6 {
+  background-color: #fff;
+  border-top: 5px dotted #8c8b8b;
+}
+.second-header {
+  text-align: center;
+}

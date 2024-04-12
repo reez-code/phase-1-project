@@ -9,10 +9,14 @@ const requestOptions = {
   redirect: "follow",
 };
 
-// fetch(BASE_URL, requestOptions)
-//   .then((response) => response.json())
-//   .then((result) => console.log(result))
-//   .catch((error) => console.error(error));
+fetch(BASE_URL, requestOptions)
+  .then((response) => response.json())
+  .then((result) => {
+    result.articles.forEach((items) => {
+      console.log(items);
+    });
+  })
+  .catch((error) => console.error(error));
 
 fetch(topHeadlines, requestOptions)
   .then((response) => response.json())
@@ -22,7 +26,7 @@ fetch(topHeadlines, requestOptions)
     updateCardInfo(result.articles[0]);
     result.articles.forEach((items) => {
       if (items !== result.articles[0]) {
-        console.log(items);
+        // console.log(items);
         secondSetofCards(items);
       }
       //
@@ -41,6 +45,9 @@ function secondSetofCards(articles) {
   const selectDiv = document.querySelector("#list");
   const secondSet = document.createElement("div");
   secondSet.className = "col";
-  secondSet.innerHTML = `<div class=col><div class=card><img src=${articles.urlToImage} class=card-img-top alt=.../> <div class=card-body><h5 class=card-title id=second>${articles.title}</h5><p class=card-text>${articles.description}</p></div></div></div>`;
+  secondSet.innerHTML = `<img src=${articles.urlToImage} class=card-img-top alt=.../> <div class=card-body><h5 class=card-title id=second>${articles.title}</h5><p class=card-text>${articles.description}</p><p>For More Info Visit: <a href=${articles.url} target="_blank">${articles.source["name"]}</a></p><p class=card-text><small class=text-body-secondary>Last updated 3 mins ago</small></p></div>`;
+  // secondSet.innerHTML = `<div class=col><div class=card><img src=${articles.urlToImage} class=card-img-top alt=.../> <div class=card-body><h5 class=card-title id=second>${articles.title}</h5><p class=card-text>${articles.description}</p><p>For More Info Visit: <a href=${articles.url} target="_blank">${articles.source["name"]}</a></p></div></div></div>`;
   selectDiv.append(secondSet);
 }
+
+function moreNews() {}
