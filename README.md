@@ -25,7 +25,7 @@ Git clone git@github.com:reez-code/wk2-code-challenge.git
 
 # Live Link
 
-[Git](https://github.com/reez-code/wk2-code-challenge.git)
+[Git](https://reez-code.github.io/phase-1-project/)
 
 ## Technologies used
 
