@@ -6,7 +6,10 @@ const topHeadlines =
   "https://newsapi.org/v2/top-headlines?country=us&apiKey=639ca18fdafc424ab5a8821fe549513d";
 const requestOptions = {
   method: "GET",
-  redirect: "follow",
+  headers: {
+    "Content-Type": "application/json",
+    Accept: "application/json",
+  },
 };
 
 fetch(BASE_URL, requestOptions)
