@@ -7,10 +7,6 @@ const topHeadlines =
 const requestOptions = {
   method: "GET",
   redirect: "follow",
-  headers: {
-    "Content-Type": "application/json",
-    Accept: "application/json",
-  },
 };
 
 fetch(BASE_URL, requestOptions)
