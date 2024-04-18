@@ -29,7 +29,6 @@ fetch(topHeadlines, requestOptions)
         // console.log(items);
         secondSetofCards(items);
       }
-      //
     });
   })
   .catch((error) => console.error(error));
