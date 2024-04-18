@@ -39,6 +39,7 @@ function updateCardInfo(article) {
   document.querySelector(".card-title").textContent = article.title;
   document.querySelector(".card-text").textContent = article.description;
   document.getElementById("more-info").href = article.url;
+  document.getElementById("more-info").textContent = article.source["name"];
 }
 function secondSetofCards(articles) {
   // accesses the second content and creates cards
